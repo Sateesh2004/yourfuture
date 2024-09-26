@@ -3,6 +3,8 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
@@ -13,23 +15,37 @@ export default function Home() {
   const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true); // Start loading when submit is triggered
-    const genAI = new GoogleGenerativeAI(
-      "AIzaSyCZbMGms1R4FC30ykDKyOo9Oj2g-YoHMdI"
-    );
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    const result = await model.generateContent(
-      `I am ${prompt} and my DOB is ${dob?.toLocaleDateString()} and I want to know about my future. Just give me a funny and cute future prediction. And add a funny and tricky line at the end response.`
-    );
-    setResponse(result.response.text().replace(/\*\*/g, ''));
-    setLoading(false); // Stop loading once the result is available
+    try{
+      const genAI = new GoogleGenerativeAI(
+        "AIzaSyCZbMGms1R4FC30ykDKyOo9Oj2g-YoHMdI"
+      );
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      const result = await model.generateContent(
+        `I am ${prompt} and my DOB is ${dob?.toLocaleDateString()} and I want to know about my future. Just give me a funny and cute future prediction. And add a line And Dont bieleve in me belive in yourself go and study something like that at the end response like a note.`
+      );
+      setResponse(result.response.text().replace(/\*\*/g, ''));
+      setLoading(false); // Stop loading once the result is available
+    }
+    catch(error){
+      console.log(error)
+      setLoading(false);
+      toast.error("Try again and please fill correct details.")
+
+
+    }
+    
   };
 
   return (
+    <div>
+    <ToastContainer />
+
     <div className="flex flex-col md:flex-row items-center justify-center h-screen bg-gradient-to-br from-purple-600 to-indigo-600">
+      
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl flex flex-col md:flex-row">
         {/* Form Section */}
         <div className="w-full pr-0 md:pr-4">
-          <h1 className="text-2xl font-bold mb-4 text-center text-purple-700">✨ Fill in Your Details ✨</h1>
+          <h1 className="text-2xl font-bold mb-4 text-center text-purple-700">Tell me your <span style={{color:"black"}}>NAME</span> and <span style={{color:"black"}}>DOB</span></h1>
 
           <form onSubmit={submitHandler} className="mb-6">
             <div className="border h-[50px] mb-4">
@@ -87,6 +103,7 @@ export default function Home() {
               <div className="w-8 h-8 border-4 border-purple-500 border-t-transparent border-solid rounded-full animate-spin"></div>
             </div>
           )}
+          
         </div>
 
         {/* Divider */}
@@ -101,16 +118,17 @@ export default function Home() {
 
         {/* Response Section */}
         <div className="w-full pl-0 md:pl-4 flex-grow">
-          <h1 className="text-2xl font-bold mb-4 text-center text-purple-700">🔮 Your Future 🔮</h1>
+          <h1 className="text-2xl font-bold mb-4 text-center text-purple-700">🔮 Your <span style={{color:"black"}}>Future</span>🔮</h1>
 
           <div className="bg-gray-50 p-4 h-[400px] rounded-lg border border-gray-200 overflow-y-auto scrollable-element">
             {response ? (
-              <p className="mt-2 text-gray-700">{response}</p>
+              <p className="mt-2 text-black">{response}</p>
             ) : (
-              <p className="mt-2 text-gray-500">Your prediction will appear here...</p>
+              <p className="mt-2 text-purple-500 font-bold">Chin Tapak Dum Dum...</p>
             )}
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

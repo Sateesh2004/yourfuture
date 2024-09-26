@@ -29,17 +29,17 @@ body {
 /* For Webkit Browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 12px; /* Width of the scrollbar */
-  border-radius: 6px; /* Rounded corners */
+  /* Rounded corners */
 }
 
 ::-webkit-scrollbar-track {
   background: #f1f1f1; /* Track color */
-  border-radius: 6px; /* Rounded corners for track */
+   /* Rounded corners for track */
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #7b4cea; /* Thumb color */
-  border-radius: 10px; /* Rounded corners for thumb */
+   /* Rounded corners for thumb */
 }
 
 /* Optional: Change thumb color on hover */
