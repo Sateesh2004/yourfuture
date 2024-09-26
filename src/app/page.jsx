@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReactAudioPlayer from 'react-audio-player';
 
 
 
@@ -42,7 +43,9 @@ export default function Home() {
 
   return (
     <div>
+      
     <ToastContainer />
+    
     {/* <Image src="icons/magic.svg" width={100} height={100}/> */}
 
     <div className="flex flex-col md:flex-row items-center justify-center h-screen bg-gradient-to-br from-purple-600 to-indigo-600">
@@ -137,7 +140,7 @@ export default function Home() {
         </div>
       </div>
       </div>
-      <div className="absolute bottom-10 right-0 text-black font-bold text-center w-full font-serif"> <p>&copy; 2024 Sateesh Kumar. All rights reserved.</p></div>
+      <div className="absolute bottom-10 right-0 text-black font-bold text-center w-full font-serif"> <p>&copy; 2024 Sateesh.</p></div>
     </div>
   );
 }
