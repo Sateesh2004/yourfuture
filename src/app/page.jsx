@@ -1,10 +1,14 @@
 "use client";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import Image from "next/image";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+
+
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
@@ -39,6 +43,7 @@ export default function Home() {
   return (
     <div>
     <ToastContainer />
+    {/* <Image src="icons/magic.svg" width={100} height={100}/> */}
 
     <div className="flex flex-col md:flex-row items-center justify-center h-screen bg-gradient-to-br from-purple-600 to-indigo-600">
       
