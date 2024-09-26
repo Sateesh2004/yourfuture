@@ -17,9 +17,9 @@ const geistMono = localFont({
 export const metadata = {
   title: {
     template:
-      "Sateesh • Portfolio",
+      "Your Future Predictor",
     default:
-      "Sateesh • Portfolio",
+      "Your Future Predictor",
   },
   description:
     "A unique creative portfolio designed by Sateesh.",

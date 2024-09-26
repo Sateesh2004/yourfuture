@@ -55,6 +55,7 @@ export default function Home() {
           <form onSubmit={submitHandler} className="mb-6">
             <div className="border h-[50px] mb-4">
               <input
+                required
                 type="text"
                 value={prompt}
                 placeholder="Enter your name..."
@@ -65,6 +66,7 @@ export default function Home() {
 
             <div className="relative border h-[50px] mb-4">
               <DatePicker
+                required
                 selected={dob} // Keep it null initially
                 onChange={(date) => setDob(date)}
                 className="w-full p-3 border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 pr-10 custom-datepicker"
@@ -129,12 +131,13 @@ export default function Home() {
             {response ? (
               <p className="mt-2 text-black">{response}</p>
             ) : (
-              <p className="mt-2 text-purple-500 font-bold">Chin Tapak Dum Dum...</p>
+              <p className="mt-2 text-purple-500 font-bold font-mono">Chin Tapak Dum Dum...</p>
             )}
           </div>
         </div>
       </div>
       </div>
+      <div className="absolute bottom-10 right-0 text-black font-bold text-center w-full font-serif"> <p>&copy; 2024 Sateesh Kumar. All rights reserved.</p></div>
     </div>
   );
 }
