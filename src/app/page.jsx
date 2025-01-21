@@ -46,7 +46,6 @@ export default function Home() {
       
     <ToastContainer />
     
-    {/* <Image src="icons/magic.svg" width={100} height={100}/> */}
 
     <div className="flex flex-col md:flex-row items-center justify-center h-screen bg-gradient-to-br from-purple-600 to-indigo-600">
       
