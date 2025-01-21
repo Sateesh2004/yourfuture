@@ -22,7 +22,7 @@ export default function Home() {
     setLoading(true); // Start loading when submit is triggered
     try{
       const genAI = new GoogleGenerativeAI(
-        "AIzaSyCZbMGms1R4FC30ykDKyOo9Oj2g-YoHMdI"
+        process.env.NEXT_PUBLIC_GEMINI_API
       );
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
       const result = await model.generateContent(
